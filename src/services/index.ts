@@ -6,7 +6,7 @@ export interface ServiceError {
 }
 
 abstract class Service<T> {
-  constructor(protected model: MongoModel<T>) {}
+  constructor(public model: MongoModel<T>) {}
 
   public async create(obj: T): Promise<T | null | ServiceError> {
     const created = this.model.create(obj);

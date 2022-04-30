@@ -6,7 +6,6 @@ import { Car } from '../../../interfaces/CarInterface';
 import CarModel from '../../../models/CarModel';
 
 describe('Teste a camada model de car', () => {
-
   const carModel = new CarModel();
 
   before(() => {

@@ -5,7 +5,7 @@ import sinon from 'sinon';
 import { Car } from '../../../interfaces/CarInterface';
 import CarService from '../../../services/CarService';
 
-describe('CarService', () => {
+describe('Testa camada Service de Car', () => {
   const carService = new CarService();
 
   before(() => {
@@ -14,7 +14,7 @@ describe('CarService', () => {
 
   after(() => (carService.model.create as sinon.SinonStub).restore());
 
-  it('função create', async () => {
+  it('Testa se um carro é criado com sucesso', async () => {
     const response = await carService.create(mokedCar as Car);
 
     expect(response).to.be.deep.equal(documentMock);

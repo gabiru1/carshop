@@ -5,27 +5,27 @@ abstract class MongoModel<T> implements Model<T> {
   constructor(protected model: M<T & Document>) {}
 
   create = async (obj: T): Promise<T> => {
-    const created = this.model.create({ ...obj });
+    const created = await this.model.create({ ...obj });
     return created;
   };
 
   read = async (): Promise<T[]> => {
-    const readed = this.model.find();
+    const readed = await this.model.find();
     return readed;
   };
 
   readOne = async (id: string): Promise<T | null> => {
-    const one = this.model.findOne({ _id: id });
+    const one = await this.model.findOne({ _id: id });
     return one;
   };
 
   update = async (id: string, obj: T): Promise<T | null> => {
-    const updated = this.model.findByIdAndUpdate(id, { ...obj });
+    const updated = await this.model.findByIdAndUpdate(id, { ...obj });
     return updated;
   };
 
   delete = async (id: string): Promise<T | null> => {
-    const deleted = this.model.findByIdAndDelete(id);
+    const deleted = await this.model.findByIdAndDelete(id);
     return deleted;
   };
 }
